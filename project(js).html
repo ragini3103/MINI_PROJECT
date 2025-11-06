@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leap year checker</title>
+    <style>
+        body{
+            background-color: lawngreen;
+        }
+        .container
+        {
+          background-color: white;
+          height: 210px;
+          width: 310px;
+          color: black;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          border-radius: 18px;
+          margin-left: 420px;
+          margin-top: 100px;
+          box-shadow: 3px 3px 3px 3px darkblue;
+        
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+    <h2 style="text-align: center; color: red;">LEAP YEAR CHECKER</h2>
+
+    <input type="number" name="year" class="year" placeholder="Enter a Year" style="height: 26px; width: 290px; box-shadow: 2px 2px 2px 2px bisque; border: none;">
+    <br>
+    <button type="button" class="btn" onclick="check()" style="height: 26px; width: 300px; background-color: darkblue; border: none; color: white; cursor: pointer; ">CHECK</button>
+    <br>
+    <div class="display"></div>
+    </div>
+
+
+    <script>
+        
+        function check()
+        {
+            let year=document.getElementsByClassName('year')[0].value.trim();
+            let display=document.getElementsByClassName('display')[0];
+
+            if(year==""){
+                alert(`fill the field`);
+                return
+            }
+            
+            if (year.length !== 4 || isNaN(year)) {
+            alert("Please enter a valid 4-digit year!");
+            return;
+            }
+
+          if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) 
+          {
+        display.textContent = `${year} is a Leap Year!!!`;
+        } 
+        else 
+        {
+        display.textContent = `${year} is a Non-Leap Year!!!`;
+        }
+
+        }
+    </script>
+
+</body>
+</html>
